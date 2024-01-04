@@ -1,0 +1,47 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Desktop Tool</title>
+    <style>
+      body {
+        background: rgba(99, 31, 25);
+      }
+      button {
+        display: inline-flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        gap: 10px 0px;
+        flex-wrap: wrap;
+        border-radius: 20.193px;
+        border: 1.01px solid rgba(0, 0, 0, 0.50);
+        background: #D5B157;
+        color: #4F0F09;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="ssoButton" onclick="logIn();">Single Sign-On</button>
+
+    <script>
+      const logIn = () => {
+        console.log('logIn');
+        const url = 'https://72dragonscannes.com/Google_Sign/loggedinstoretoken.php?prevURL=http://45.76.160.28:4019';
+        window.location.href = url;
+      };
+
+      const staffSessionToken = 'QazEFzM78OeycJYcRqY2vSHvVR2Ab2JyLVww8Wv83wzEZh9ozb';
+
+      // Send a message to the main process to validate the token
+      window.api.send('validateToken', staffSessionToken);
+
+      // Receive a message from the main process regarding token validation result
+      window.api.receive('tokenValidationResult', (isValid) => {
+        console.log('Is valid token:', isValid);
+      });
+    </script>
+  </body>
+</html>

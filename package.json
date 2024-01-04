@@ -1,0 +1,39 @@
+{
+  "name": "electron-app",
+  "version": "1.0.0",
+  "description": "Desktop Tool",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "build": {
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "harshit98765",
+        "repo": "desktop-tool"
+      }
+    ],
+    "appId": "harshit.desktop-tool.1.0",
+    "asar": true,
+    "mac": {
+      "category": "harshit.desktop-tool",
+      "target": "default"
+    },
+    "win": {
+      "target": "nsis"
+    }
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^28.1.0",
+    "electron-builder": "^24.9.1",
+    "electron-packager": "^17.1.2"
+  },
+  "dependencies": {
+    "electron-updater": "^6.1.7",
+    "mysql": "^2.18.1"
+  }
+}
